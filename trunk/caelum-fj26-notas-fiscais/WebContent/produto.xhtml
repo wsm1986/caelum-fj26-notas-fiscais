@@ -23,29 +23,34 @@
 			<h:commandButton value="Gravar" action="#{produtoBean.grava}" />
 		</h:panelGrid>
 	</h:form>
+
+	<h:form>
+		<h:dataTable value="#{produtoBean.produtos}" var="varProduto">
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				<h:outputText value="#{varProduto.nome}" />
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Descrição</f:facet>
+				<h:outputText value="#{varProduto.descricao}" />
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Preço</f:facet>
+				<h:outputText value="#{varProduto.preco}" />
+				<f:facet name="footer">
+					<h:outputText value="#{produtoBean.totalPreco}">
+						<f:convertNumber pattern="R$ ####.00" />
+					</h:outputText>
+				</f:facet>
+			</h:column>
 	
-	<h:dataTable value="#{produtoBean.produtos}" var="varProduto">
-	
-		<h:column>
-			<f:facet name="header">Nome</f:facet>
-			<h:outputText value="#{varProduto.nome}" />
-		</h:column>
-		
-		<h:column>
-			<f:facet name="header">Descrição</f:facet>
-			<h:outputText value="#{varProduto.descricao}" />
-		</h:column>
-		
-		<h:column>
-			<f:facet name="header">Preço</f:facet>
-			<h:outputText value="#{varProduto.preco}" />
-			<f:facet name="footer">
-				<h:outputText value="#{produtoBean.totalPreco}">
-					<f:convertNumber pattern="R$ ####.00" />
-				</h:outputText>
-			</f:facet>
-		</h:column>
-		
-	</h:dataTable>
+			<h:column>
+				<f:facet name="header">Ações</f:facet>
+				<h:commandLink action="#{produtoBean.remove(varProduto)}" value="Remover" />
+			</h:column>
+		</h:dataTable>
+	</h:form>
 </h:body>
 </html>
