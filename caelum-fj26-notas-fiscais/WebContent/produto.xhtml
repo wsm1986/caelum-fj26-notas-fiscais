@@ -39,6 +39,11 @@
 		<h:column>
 			<f:facet name="header">Preço</f:facet>
 			<h:outputText value="#{varProduto.preco}" />
+			<f:facet name="footer">
+				<h:outputText value="#{produtoBean.totalPreco}">
+					<f:convertNumber pattern="R$ ####.00" />
+				</h:outputText>
+			</f:facet>
 		</h:column>
 		
 	</h:dataTable>

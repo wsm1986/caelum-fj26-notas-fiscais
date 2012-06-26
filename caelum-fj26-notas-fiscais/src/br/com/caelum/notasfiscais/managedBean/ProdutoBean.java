@@ -32,4 +32,11 @@ public class ProdutoBean {
 		}
 		return produtos;
 	}
+
+	public double getTotalPreco() {
+		double totalPreco = 0.0d;
+		for (Produto produto : getProdutos())
+			totalPreco = totalPreco + produto.getPreco();
+		return totalPreco;
+	}
 }
