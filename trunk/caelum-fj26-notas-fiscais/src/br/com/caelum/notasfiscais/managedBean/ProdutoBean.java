@@ -3,10 +3,12 @@ package br.com.caelum.notasfiscais.managedBean;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 
 import br.com.caelum.notasfiscais.dao.DAO;
 import br.com.caelum.notasfiscais.modelo.Produto;
 
+@ViewScoped
 @ManagedBean
 public class ProdutoBean {
 
